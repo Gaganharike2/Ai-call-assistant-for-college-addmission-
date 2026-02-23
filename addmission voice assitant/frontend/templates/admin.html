@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel | BFGI</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css3/styles.css') }}">
+
+<style>
+
+body{
+  font-family: Arial, sans-serif;
+  background:#f4f6fb;
+  margin:0;
+}
+
+/* Sidebar */
+
+.sidebar{
+  width:260px;
+  height:100vh;
+  background:#1e293b;
+  color:white;
+  position:fixed;
+  left:0;
+  top:0;
+  padding:20px;
+  overflow-y:auto;
+}
+
+.sidebar h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.sidebar a{
+  display:block;
+  padding:10px;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  margin-bottom:5px;
+}
+
+.sidebar a:hover{
+  background:#334155;
+}
+
+/* Main */
+
+.main{
+  margin-left:280px;
+  padding:30px;
+}
+
+.section{
+  background:white;
+  padding:20px;
+  margin-bottom:25px;
+  border-radius:10px;
+  box-shadow:0 0 12px rgba(0,0,0,.1);
+}
+
+.section h3{
+  color:#4f46e5;
+  border-bottom:1px solid #ddd;
+  padding-bottom:6px;
+  margin-bottom:15px;
+}
+
+/* Grid */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+}
+
+.card{
+  background:#f8fafc;
+  padding:12px;
+  border-radius:8px;
+  text-align:center;
+  box-shadow:0 0 5px rgba(0,0,0,.1);
+  font-size:14px;
+}
+
+.topbar{
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logout{
+  background:#dc2626;
+  color:white;
+  padding:8px 14px;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+<h2>Admin Panel</h2>
+
+<a href="#security">🔐 Security</a>
+<a href="#users">👥 Users</a>
+<a href="#courses">🎓 Courses</a>
+<a href="#fees">💰 Fees</a>
+<a href="#college">🏫 College</a>
+<a href="#ai">🤖 AI</a>
+<a href="#reports">📊 Reports</a>
+<a href="#data">📁 Data</a>
+<a href="#admission">📝 Admission</a>
+<a href="#notify">📢 Notifications</a>
+<a href="#settings">⚙️ Settings</a>
+<a href="#ui">🎨 UI</a>
+<a href="#future">🚀 Future</a>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+
+<!-- Top Bar -->
+
+<div class="topbar">
+  <h2>Welcome Admin</h2>
+  <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+</div>
+
+
+<!-- ================= SECURITY ================= -->
+
+<div class="section" id="security">
+
+<h3>🔐 Access & Security</h3>
+
+<div class="grid">
+
+<div class="card">Admin Login</div>
+<div class="card">Role Authorization</div>
+<div class="card">Session Control</div>
+<div class="card">Unauthorized Block</div>
+<div class="card">Activity Logs</div>
+<div class="card">Secure Logout</div>
+
+</div>
+</div>
+
+
+<!-- ================= USERS ================= -->
+
+<div class="section" id="users">
+
+<h3>👥 User Management</h3>
+
+<div class="grid">
+
+<div class="card">View Users</div>
+<div class="card">User Profiles</div>
+<div class="card">Role Control</div>
+<div class="card">Activate / Deactivate</div>
+<div class="card">Delete Users</div>
+<div class="card">Reset Password</div>
+<div class="card">Block Users</div>
+<div class="card">Search Users</div>
+<div class="card">Filter Roles</div>
+<div class="card">Registration History</div>
+
+</div>
+</div>
+
+
+<!-- ================= COURSES ================= -->
+
+<div class="section" id="courses">
+
+<h3>🎓 Course Management</h3>
+
+<div class="grid">
+
+<div class="card">Add Courses</div>
+<div class="card">Edit Courses</div>
+<div class="card">Delete Courses</div>
+<div class="card">Duration Update</div>
+<div class="card">Eligibility Control</div>
+<div class="card">Categories</div>
+<div class="card">Seat Control</div>
+<div class="card">Status Control</div>
+<div class="card">Popularity</div>
+<div class="card">Priority</div>
+
+</div>
+</div>
+
+
+<!-- ================= FEES ================= -->
+
+<div class="section" id="fees">
+
+<h3>💰 Fee Management</h3>
+
+<div class="grid">
+
+<div class="card">Add Fees</div>
+<div class="card">Update Fees</div>
+<div class="card">Scholarship</div>
+<div class="card">Installments</div>
+<div class="card">Late Fees</div>
+<div class="card">Discounts</div>
+<div class="card">Comparison</div>
+<div class="card">Download Reports</div>
+<div class="card">Revision</div>
+<div class="card">Approval</div>
+
+</div>
+</div>
+
+
+<!-- ================= COLLEGE ================= -->
+
+<div class="section" id="college">
+
+<h3>🏫 College Information</h3>
+
+<div class="grid">
+
+<div class="card">Profile Edit</div>
+<div class="card">Campus Info</div>
+<div class="card">Contact Update</div>
+<div class="card">Social Links</div>
+<div class="card">Brochure</div>
+<div class="card">Infrastructure</div>
+<div class="card">Faculty</div>
+<div class="card">Placement</div>
+<div class="card">Hostel</div>
+<div class="card">Accreditation</div>
+
+</div>
+</div>
+
+
+<!-- ================= AI ================= -->
+
+<div class="section" id="ai">
+
+<h3>🤖 AI Control</h3>
+
+<div class="grid">
+
+<div class="card">Enable / Disable AI</div>
+<div class="card">Select Model</div>
+<div class="card">Response Style</div>
+<div class="card">Knowledge Base</div>
+<div class="card">Performance Monitor</div>
+<div class="card">Reset History</div>
+<div class="card">Error Logs</div>
+<div class="card">Usage Stats</div>
+<div class="card">Training Data</div>
+<div class="card">Tuning</div>
+
+</div>
+</div>
+
+
+<!-- ================= REPORTS ================= -->
+
+<div class="section" id="reports">
+
+<h3>📊 Analytics & Reports</h3>
+
+<div class="grid">
+
+<div class="card">User Dashboard</div>
+<div class="card">Login Reports</div>
+<div class="card">Applications</div>
+<div class="card">Chatbot Usage</div>
+<div class="card">Course Popularity</div>
+<div class="card">Revenue</div>
+<div class="card">Recommendation Rate</div>
+<div class="card">Engagement</div>
+<div class="card">PDF / Excel</div>
+<div class="card">Graphs</div>
+
+</div>
+</div>
+
+
+<!-- ================= DATA ================= -->
+
+<div class="section" id="data">
+
+<h3>📁 Data Management</h3>
+
+<div class="grid">
+
+<div class="card">Upload Data</div>
+<div class="card">AI Files</div>
+<div class="card">Backup</div>
+<div class="card">Restore</div>
+<div class="card">Export DB</div>
+<div class="card">Import Data</div>
+<div class="card">Verification</div>
+<div class="card">Media Files</div>
+<div class="card">Cleanup</div>
+<div class="card">Storage Monitor</div>
+
+</div>
+</div>
+
+
+<!-- ================= ADMISSION ================= -->
+
+<div class="section" id="admission">
+
+<h3>📝 Admission Management</h3>
+
+<div class="grid">
+
+<div class="card">Applications</div>
+<div class="card">Verify Docs</div>
+<div class="card">Approve / Reject</div>
+<div class="card">Track Status</div>
+<div class="card">Seat Allocation</div>
+<div class="card">Merit List</div>
+<div class="card">Waiting List</div>
+<div class="card">Counseling</div>
+<div class="card">Offer Letters</div>
+<div class="card">Confirm Admission</div>
+
+</div>
+</div>
+
+
+<!-- ================= NOTIFICATION ================= -->
+
+<div class="section" id="notify">
+
+<h3>📢 Notifications</h3>
+
+<div class="grid">
+
+<div class="card">Email</div>
+<div class="card">SMS</div>
+<div class="card">In-App</div>
+<div class="card">Broadcast</div>
+<div class="card">Emergency</div>
+<div class="card">Reminders</div>
+<div class="card">Payments</div>
+<div class="card">Counseling</div>
+<div class="card">Scholarship</div>
+<div class="card">System Alerts</div>
+
+</div>
+</div>
+
+
+<!-- ================= SETTINGS ================= -->
+
+<div class="section" id="settings">
+
+<h3>⚙️ System Settings</h3>
+
+<div class="grid">
+
+<div class="card">Themes</div>
+<div class="card">Maintenance</div>
+<div class="card">Languages</div>
+<div class="card">Backup Schedule</div>
+<div class="card">API Config</div>
+<div class="card">Security Policy</div>
+<div class="card">Password Rules</div>
+<div class="card">Session Timeout</div>
+<div class="card">Database</div>
+<div class="card">Server Status</div>
+
+</div>
+</div>
+
+
+<!-- ================= UI ================= -->
+
+<div class="section" id="ui">
+
+<h3>🎨 UI / UX</h3>
+
+<div class="grid">
+
+<div class="card">Dashboard Layout</div>
+<div class="card">Widgets</div>
+<div class="card">Colors</div>
+<div class="card">Dark Mode</div>
+<div class="card">Responsive</div>
+<div class="card">Accessibility</div>
+<div class="card">Font Control</div>
+<div class="card">Icons</div>
+<div class="card">Preview</div>
+<div class="card">Mobile View</div>
+
+</div>
+</div>
+
+
+<!-- ================= FUTURE ================= -->
+
+<div class="section" id="future">
+
+<h3>🚀 Advanced & Future</h3>
+
+<div class="grid">
+
+<div class="card">ML Analytics</div>
+<div class="card">Prediction</div>
+<div class="card">Alumni System</div>
+<div class="card">Industry Portal</div>
+<div class="card">Placement AI</div>
+<div class="card">Blockchain</div>
+<div class="card">Cloud Sync</div>
+<div class="card">Multi Campus</div>
+<div class="card">International</div>
+<div class="card">Virtual Counseling</div>
+
+</div>
+</div>
+
+
+</div>
+
+</body>
+</html>

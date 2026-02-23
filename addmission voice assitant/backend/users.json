@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Administrator",
+        "username": "admin",
+        "email": "admin@bfgi.com",
+        "mobile": "9999999999",
+        "password": "$2b$12$43JIexgOdii9puB6Z6RL3OfQvnRN9a1GsZkL16DC5GzTO8/9B7JEO",
+        "role": "Admin"
+    }
+]

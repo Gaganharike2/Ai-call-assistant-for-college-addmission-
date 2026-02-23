@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>User Profile | BFGI</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css3/styles.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+
+/* ================= BODY ================= */
+
+body{
+  font-family: Arial, sans-serif;
+  background:#f4f6fb;
+  padding:30px;
+}
+
+/* ================= CARD ================= */
+
+.container{
+  max-width:750px;
+  margin:auto;
+  background:white;
+  padding:35px;
+  border-radius:15px;
+  box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+/* ================= HEADER ================= */
+
+.profile-head{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:#4f46e5;
+  color:white;
+  font-size:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 10px;
+}
+
+.profile-head h1{
+  margin-bottom:4px;
+}
+
+.role{
+  font-size:14px;
+  color:#555;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+  margin-bottom:25px;
+}
+
+.section h3{
+  margin-bottom:10px;
+  color:#4f46e5;
+  border-bottom:1px solid #ddd;
+  padding-bottom:5px;
+}
+
+/* ================= ITEMS ================= */
+
+.item{
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  border-bottom:1px dotted #ccc;
+  font-size:15px;
+}
+
+.item span{
+  color:#555;
+}
+
+.badge{
+  padding:3px 8px;
+  border-radius:12px;
+  font-size:12px;
+  color:white;
+}
+
+.green{ background:#16a34a; }
+.blue{ background:#2563eb; }
+.orange{ background:#f97316; }
+.red{ background:#dc2626; }
+
+/* ================= ACTIVITY ================= */
+
+.activity{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  margin-top:10px;
+}
+
+.activity-box{
+  background:#f8fafc;
+  padding:12px;
+  border-radius:8px;
+  text-align:center;
+  font-size:14px;
+  box-shadow:0 0 8px rgba(0,0,0,.08);
+}
+
+/* ================= BUTTONS ================= */
+
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.buttons a{
+  padding:10px 18px;
+  text-decoration:none;
+  background:#4f46e5;
+  color:white;
+  border-radius:6px;
+  font-size:14px;
+}
+
+.buttons a.logout{
+  background:#dc2626;
+}
+
+.buttons a.edit{
+  background:#16a34a;
+}
+
+.buttons a:hover{
+  opacity:.9;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+
+<!-- ================= HEADER ================= -->
+
+<div class="profile-head">
+
+  <!-- SAFE AVATAR -->
+  <div class="avatar">
+    {{ (user.name | default("U"))[0] | upper }}
+  </div>
+
+  <!-- SAFE NAME -->
+  <h1>
+    {{ user.name | default("User") }}
+  </h1>
+
+  <div class="role">
+    {{ user.role | default("Student") }} Account
+  </div>
+
+</div>
+
+
+
+<!-- ================= BASIC INFO ================= -->
+
+<div class="section">
+
+<h3>👤 Basic Information</h3>
+
+<div class="item">
+  <span>Full Name</span>
+  <strong>{{ user.name | default("Not Set") }}</strong>
+</div>
+
+<div class="item">
+  <span>Username</span>
+  <strong>{{ user.username | default("Not Set") }}</strong>
+</div>
+
+<div class="item">
+  <span>Email</span>
+  <strong>{{ user.email | default("Not Set") }}</strong>
+</div>
+
+<div class="item">
+  <span>Mobile</span>
+  <strong>{{ user.mobile | default("Not Set") }}</strong>
+</div>
+
+</div>
+
+
+
+<!-- ================= ACCOUNT FEATURES ================= -->
+
+<div class="section">
+
+<h3>⚙️ Account Features</h3>
+
+<div class="item">
+  <span>Edit Profile</span>
+  <span class="badge green">Enabled</span>
+</div>
+
+<div class="item">
+  <span>Change Password</span>
+  <span class="badge green">Enabled</span>
+</div>
+
+<div class="item">
+  <span>Profile Photo</span>
+  <span class="badge blue">Optional</span>
+</div>
+
+<div class="item">
+  <span>Two-Factor Auth</span>
+  <span class="badge orange">Planned</span>
+</div>
+
+<div class="item">
+  <span>Voice Login</span>
+  <span class="badge green">Enabled</span>
+</div>
+
+<div class="item">
+  <span>Remember Device</span>
+  <span class="badge green">Enabled</span>
+</div>
+
+</div>
+
+
+
+<!-- ================= SECURITY ================= -->
+
+<div class="section">
+
+<h3>🔐 Security</h3>
+
+<div class="item">
+  <span>Password Encryption</span>
+  <span class="badge green">Active</span>
+</div>
+
+<div class="item">
+  <span>Login History</span>
+  <span class="badge green">Tracked</span>
+</div>
+
+<div class="item">
+  <span>Account Lock</span>
+  <span class="badge orange">Planned</span>
+</div>
+
+<div class="item">
+  <span>Email Alerts</span>
+  <span class="badge orange">Planned</span>
+</div>
+
+<div class="item">
+  <span>Session Protection</span>
+  <span class="badge green">Active</span>
+</div>
+
+</div>
+
+
+
+<!-- ================= SYSTEM ================= -->
+
+<div class="section">
+
+<h3>🖥️ System Features</h3>
+
+<div class="item">
+  <span>AI Chat Assistant</span>
+  <span class="badge green">Available</span>
+</div>
+
+<div class="item">
+  <span>Admission Form</span>
+  <span class="badge green">Available</span>
+</div>
+
+<div class="item">
+  <span>Course Management</span>
+  <span class="badge green">Available</span>
+</div>
+
+<div class="item">
+  <span>Fee Module</span>
+  <span class="badge green">Available</span>
+</div>
+
+<div class="item">
+  <span>Admin Panel</span>
+  <span class="badge blue">Role Based</span>
+</div>
+
+</div>
+
+
+
+<!-- ================= ACTIVITY ================= -->
+
+<div class="section">
+
+<h3>📊 Account Activity</h3>
+
+<div class="activity">
+
+  <div class="activity-box">
+    📅 Joined<br>
+    <strong>2026</strong>
+  </div>
+
+  <div class="activity-box">
+    🔑 Last Login<br>
+    <strong>Today</strong>
+  </div>
+
+  <div class="activity-box">
+    💬 AI Chats<br>
+    <strong>Active</strong>
+  </div>
+
+  <div class="activity-box">
+    📝 Forms<br>
+    <strong>Submitted</strong>
+  </div>
+
+</div>
+
+</div>
+
+
+
+<!-- ================= BUTTONS ================= -->
+
+<div class="buttons">
+
+  <a href="{{ url_for('home') }}">
+    <i class="fa-solid fa-house"></i> Dashboard
+  </a>
+
+  <a href="#" class="edit">
+    <i class="fa-solid fa-pen"></i> Edit Profile
+  </a>
+
+  <a href="{{ url_for('logout') }}" class="logout">
+    <i class="fa-solid fa-right-from-bracket"></i> Logout
+  </a>
+
+</div>
+
+
+</div>
+
+
+</body>
+</html>

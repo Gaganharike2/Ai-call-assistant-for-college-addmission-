@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BFGI Voice Admission Assistant</title>
+
+  <!-- ✅ Correct Flask Static Path -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css3/styles.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/BFGI-logo.jpg') }}" alt="BFGI Logo">
+  </div>
+
+  <nav>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('courses') }}">Courses</a>
+    <a href="{{ url_for('chatbot') }}">Chatbot</a>
+    <a href="{{ url_for('fees') }}">Fees</a>
+    <a href="{{ url_for('admission_process') }}">Admission Process</a>
+    <a href="{{ url_for('login_page') }}">Login</a>
+  </nav>
+
+  <!-- RIGHT ICONS -->
+  <div class="nav-icons">
+    <button
+      id="themeToggle"
+      class="icon-btn"
+      title="Day / Night Mode"
+      aria-label="Toggle theme"
+    >🌙</button>
+
+    <button
+      id="voiceToggle"
+      class="icon-btn"
+      title="Voice Assistant"
+      aria-label="Toggle voice assistant"
+    >🎤</button>
+  </div>
+</header>
+
+<!-- ================= CHATBOT ================= -->
+<main class="chat" role="main">
+  <div class="chat-header">
+    <h3>Voice Admission Assistant</h3>
+    <p>Baba Farid Group of Institutions, Bathinda</p>
+    <small style="opacity:0.8;">
+      🎤 You can type or speak your question
+    </small>
+  </div>
+
+  <!-- CHAT MESSAGES -->
+  <div
+    class="chat-body"
+    id="chatBody"
+    aria-live="polite"
+    aria-label="Chat messages"
+  ></div>
+
+  <!-- INPUT -->
+  <div class="chat-input">
+    <input
+      id="userInput"
+      type="text"
+      placeholder="Speak or type your message…"
+      autocomplete="off"
+      aria-label="Type your message"
+    />
+    <button id="sendBtn" aria-label="Send message">
+      Send
+    </button>
+  </div>
+</main>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+<!-- ================= CHAT + VOICE SCRIPT ================= -->
+<script>
+
+
+// ------------------ Add Message ------------------
+function addMessage(sender, text) {
+
+  const chatBody = document.getElementById("chatBody");
+
+  const div = document.createElement("div");
+
+  div.className = sender === "You" ? "user-msg" : "ai-msg";
+
+  div.textContent = text;
+
+  chatBody.appendChild(div);
+
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+
+// ------------------ Welcome Message ------------------
+window.onload = () => {
+
+  addMessage(
+    "AI",
+    "Hello 👋 I am your Admission Assistant. Ask me about courses, fees, or admission."
+  );
+
+};
+
+
+// ------------------ Send Message ------------------
+async function sendMessage() {
+
+  const input = document.getElementById("userInput");
+
+  const message = input.value.trim();
+
+  if (!message) return;
+
+
+  addMessage("You", message);
+
+  input.value = "";
+
+
+  try {
+
+    const response = await fetch("/api/chat", {
+
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({ message })
+
+    });
+
+
+    const data = await response.json();
+
+    addMessage("AI", data.reply);
+
+
+  } catch (error) {
+
+    addMessage("AI", "Server error. Please try again later.");
+
+  }
+
+}
+
+
+// ------------------ Button + Enter ------------------
+document.getElementById("sendBtn").addEventListener("click", sendMessage);
+
+document.getElementById("userInput").addEventListener("keypress", function (e) {
+
+  if (e.key === "Enter") sendMessage();
+
+});
+
+
+// ------------------ Voice Assistant ------------------
+const voiceBtn = document.getElementById("voiceToggle");
+
+
+// Check Mic Support
+if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+
+  addMessage("AI", "Microphone is not supported in this browser.");
+
+}
+
+
+// Check Speech Recognition
+else if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
+
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+
+  const recognition = new SpeechRecognition();
+
+
+  recognition.lang = "en-IN";
+
+  recognition.interimResults = false;
+
+  recognition.continuous = false;
+
+
+  // Start Recording
+  voiceBtn.onclick = () => {
+
+    recognition.start();
+
+    addMessage("AI", "🎤 Listening...");
+
+  };
+
+
+  // On Result
+  recognition.onresult = (event) => {
+
+    const text = event.results[0][0].transcript;
+
+    document.getElementById("userInput").value = text;
+
+    sendMessage();
+
+  };
+
+
+  // On Error
+  recognition.onerror = (event) => {
+
+    console.log("Voice Error:", event.error);
+
+
+    if (event.error === "not-allowed") {
+
+      addMessage(
+        "AI",
+        "❌ Please allow microphone permission in browser."
+      );
+
+    }
+
+    else if (event.error === "no-speech") {
+
+      addMessage(
+        "AI",
+        "⚠️ No voice detected. Please try again."
+      );
+
+    }
+
+    else {
+
+      addMessage(
+        "AI",
+        "Voice failed. Please type your message."
+      );
+
+    }
+
+  };
+
+}
+
+
+// If Browser Not Supported
+else {
+
+  addMessage("AI", "Speech recognition not supported in this browser.");
+
+}
+
+</script>
+
+</body>
+</html>

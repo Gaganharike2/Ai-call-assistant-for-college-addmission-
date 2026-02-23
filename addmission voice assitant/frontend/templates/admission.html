@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission | BFGI</title>
+
+    <link rel="stylesheet" href="static/css3/styles.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+    <div class="logo-area">
+        <img src="static/images/BFGI-logo.jpg" alt="BFGI Logo">
+    </div>
+
+    <nav>
+       <a href="{{ url_for('home') }}">Home</a>
+<a href="{{ url_for('courses') }}">Courses</a>
+<a href="{{ url_for('chatbot') }}">Chatbot</a>
+<a href="{{ url_for('fees') }}">Fees</a>
+<a href="{{ url_for('admission_process') }}">Admission Process</a>
+ <a href="{{ url_for('login_page') }}">Login</a>
+    </nav>
+
+    <!-- RIGHT ICONS -->
+    <div class="nav-icons">
+        <button id="themeToggle" class="icon-btn" title="Day / Night Mode">🌙</button>
+        <button id="voiceToggle" class="icon-btn" title="Voice Assistant">🎤</button>
+    </div>
+</header>
+
+<!-- ================= ADMISSION FORM ================= -->
+<div class="form-box">
+    <h2>Admission Form</h2>
+    <p>Apply online for your preferred course</p>
+
+    <!-- ✅ UPDATED FORM -->
+    <form id="admissionForm">
+
+        <label>Full Name *</label>
+        <input id="fullName" type="text" placeholder="Enter your full name" required>
+
+        <label>Email *</label>
+        <input id="email" type="email" placeholder="Enter your email" required>
+
+        <label>Mobile Number *</label>
+        <input id="mobile" type="tel" placeholder="Enter mobile number" required>
+
+        <label>Select Course *</label>
+        <select id="courseSelect" required>
+            <option value="">Select Course</option>
+
+            <!-- School -->
+            <option>10+1 Arts</option>
+            <option>10+1 Commerce</option>
+            <option>10+2 Medical</option>
+            <option>10+2 Non-Medical</option>
+
+            <!-- B.Tech -->
+            <option>B.Tech. CSE</option>
+            <option>B.Tech. CSE (AI & ML)</option>
+            <option>B.Tech. CSE (IoT & Blockchain)</option>
+            <option>B.Tech. Electronics & Computer Engineering</option>
+            <option>B.Tech. Electrical Engineering</option>
+            <option>B.Tech. Electrical & Computer Engineering</option>
+            <option>B.Tech. Civil Engineering</option>
+            <option>B.Tech. Mechanical Engineering</option>
+            <option>B.Tech. Mechanical & Automation Engineering</option>
+            <option>B.Tech. Data Science</option>
+            <option>B.Tech. CSE – LEET</option>
+            <option>B.Tech. CSE (AI & ML) – LEET</option>
+            <option>B.Tech. (Civil / EE / ME) – LEET</option>
+
+            <!-- UG -->
+            <option>B.Sc. Non-Medical</option>
+            <option>B.Sc. Computer Science</option>
+            <option>B.Sc. Biotechnology</option>
+            <option>B.Sc. Medical</option>
+            <option>B.Sc. Mathematics (Hons.)</option>
+            <option>B.Sc. Medical Lab Science</option>
+            <option>B.Sc. Radio Medical Imaging Technology</option>
+            <option>B.Sc. Operation Theatre Technology</option>
+            <option>B.Sc. Medical Technology (Anaesthesia & OT)</option>
+            <option>Bachelor of Physiotherapy (BPT)</option>
+            <option>B.Sc. (Hons.) Agriculture</option>
+            <option>B.Sc. (Hons.) Agri Business Management</option>
+            <option>B.Com.</option>
+            <option>B.Com. (Honours)</option>
+            <option>BBA</option>
+            <option>BMS</option>
+            <option>BHMCT</option>
+            <option>BCA</option>
+            <option>BCA (AI & ML)</option>
+            <option>BCA (Data Science)</option>
+            <option>BCA (Data Analytics)</option>
+            <option>BCA (Graphics & Web Designing)</option>
+
+            <!-- PG -->
+            <option>BA</option>
+            <option>BA (Journalism & Mass Communication)</option>
+            <option>BFA (Bachelor of Fine Arts)</option>
+            <option>B.A.–B.Ed. Integrated</option>
+            <option>B.Ed.</option>
+            <option>M.Tech. CSE</option>
+            <option>M.Sc. Physics</option>
+            <option>M.Sc. Chemistry</option>
+            <option>M.Sc. Mathematics</option>
+            <option>M.Com.</option>
+            <option>MBA</option>
+            <option>MBA (Agri Business)</option>
+            <option>MCA</option>
+            <option>PG Diploma in Computer Applications (PGDCA)</option>
+            <option>M.A. English</option>
+            <option>M.A. Economics</option>
+            <option>M.A. Punjabi</option>
+            <option>M.A. History</option>
+            <option>M.A. Political Science</option>
+            <option>M.Sc. Geography</option>
+        </select>
+
+        <button type="submit">Submit Application</button>
+    </form>
+
+    <div class="note">
+        Our admission team will contact you shortly after submission.
+    </div>
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script src="static/js/script.js"></script>
+
+<!-- ✅ NEW BACKEND-CONNECTED SCRIPT -->
+<script>
+/* ---------- Course Auto-Fill from URL ---------- */
+const params = new URLSearchParams(window.location.search);
+const selectedCourse = params.get("course");
+if (selectedCourse) {
+    document.getElementById("courseSelect").value = selectedCourse;
+}
+
+/* ---------- Admission Form Submit ---------- */
+document.getElementById("admissionForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = {
+        name: document.getElementById("fullName").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        mobile: document.getElementById("mobile").value.trim(),
+        course: document.getElementById("courseSelect").value
+    };
+
+    if (!data.name || !data.email || !data.mobile || !data.course) {
+        alert("Please fill all required fields.");
+        return;
+    }
+
+    try {
+        const response = await fetch("/api/apply", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        alert(result.message);
+
+        if (result.status === "success") {
+            document.getElementById("admissionForm").reset();
+        }
+    } catch (error) {
+        alert("Server error. Please try again later.");
+    }
+});
+</script>
+
+</body>
+</html>

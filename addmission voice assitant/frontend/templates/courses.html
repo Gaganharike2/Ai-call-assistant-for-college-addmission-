@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses Offered | BFGI</title>
+<link rel="stylesheet" href="static/css3/styles.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="static/images/BFGI-logo.jpg" alt="BFGI Logo">
+  </div>
+
+  <nav>
+   <a href="{{ url_for('home') }}">Home</a>
+<a href="{{ url_for('courses') }}">Courses</a>
+<a href="{{ url_for('chatbot') }}">Chatbot</a>
+<a href="{{ url_for('fees') }}">Fees</a>
+<a href="{{ url_for('admission_process') }}">Admission Process</a>
+<a href="{{ url_for('login_page') }}">Login</a>
+  </nav>
+  <div class="nav-icons">
+    <button id="themeToggle" class="icon-btn" title="Day / Night Mode">🌙</button>
+    <button id="voiceToggle" class="icon-btn" title="Voice Assistant">🎤</button>
+</header>
+
+<section class="header">
+  <h1>Courses Offered</h1>
+  <p>School, UG & PG Programs (1–60)</p>
+</section>
+
+<section class="courses">
+
+<!-- ========= SCHOOL (1–4) ========= -->
+<div class="card"><h3>1. 10+1 Arts</h3><p>2 Years • Arts Stream</p><div class="actions"><a href="{{ url_for('admission') }}?course=10+1 Arts">Apply</a><a href="{{ url_for('chatbot') }}?course=10+1 Arts" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>2. 10+1 Commerce</h3><p>2 Years • Commerce Stream</p><div class="actions"><a href="{{ url_for('admission') }}?course=10+1 Commerce">Apply</a><a href="{{ url_for('chatbot') }}?course=10+1 Commerce" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>3. 10+2 Medical</h3><p>2 Years • Medical Stream</p><div class="actions"><a href="{{ url_for('admission') }}?course=10+2 Medical">Apply</a><a href="{{ url_for('chatbot') }}?course=10+2 Medical" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>4. 10+2 Non-Medical</h3><p>2 Years • Science Stream</p><div class="actions"><a href="{{ url_for('admission') }}?course=10+2 Non Medical">Apply</a><a href="{{ url_for('chatbot') }}?course=10+2 Non Medical" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<!-- ========= B.TECH (5–17) ========= -->
+<div class="card"><h3>5. B.Tech CSE</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=B.Tech CSE">Apply</a><a href="{{ url_for('chatbot') }}?course=B.Tech CSE" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>6. B.Tech CSE (AI & ML)</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=B.Tech AI ML">Apply</a><a href="{{ url_for('chatbot') }}?course=B.Tech AI ML" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>7. B.Tech CSE (IoT & Blockchain)</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=B.Tech IoT">Apply</a><a href="{{ url_for('chatbot') }}?course=B.Tech IoT" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>8. B.Tech Electronics & Computer Engg.</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=ECE">Apply</a><a href="{{ url_for('chatbot') }}?course=ECE" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>9. B.Tech Electrical Engineering</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=EE">Apply</a><a href="{{ url_for('chatbot') }}?course=EE" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>10. B.Tech Electrical & Computer Engg.</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=ECE Electrical">Apply</a><a href="{{ url_for('chatbot') }}?course=ECE Electrical" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>11. B.Tech Civil Engineering</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=Civil">Apply</a><a href="{{ url_for('chatbot') }}?course=Civil" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>12. B.Tech Mechanical Engineering</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=Mechanical">Apply</a><a href="{{ url_for('chatbot') }}?course=Mechanical" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>13. B.Tech Mechanical & Automation</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=Automation">Apply</a><a href="{{ url_for('chatbot') }}?course=Automation" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>14. B.Tech Data Science</h3><p>4 Years • Engineering</p><div class="actions"><a href="{{ url_for('admission') }}?course=Data Science">Apply</a><a href="{{ url_for('chatbot') }}?course=Data Science" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>15. B.Tech CSE – LEET</h3><p>3 Years • Lateral Entry</p><div class="actions"><a href="{{ url_for('admission') }}?course=LEET CSE">Apply</a><a href="{{ url_for('chatbot') }}?course=LEET CSE" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>16. B.Tech AI & ML – LEET</h3><p>3 Years • Lateral Entry</p><div class="actions"><a href="{{ url_for('admission') }}?course=LEET AI ML">Apply</a><a href="{{ url_for('chatbot') }}?course=LEET AI ML" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<div class="card"><h3>17. B.Tech (Civil / EE / ME) – LEET</h3><p>3 Years • Lateral Entry</p><div class="actions"><a href="{{ url_for('admission') }}?course=LEET Other">Apply</a><a href="{{ url_for('chatbot') }}?course=LEET Other" class="ai">Ask AI</a><a href="{{ url_for('fees') }}" class="fees">Fees</a></div></div>
+<!-- ========= 18–41 UG PROGRAMS ========= -->
+<div class="card"><h3>B.Sc. Non-Medical</h3><p>3 Years • Science</p><div class="actions"><a href="admission.html?course=B.Sc Non Medical">Apply</a><a href="chatbot.html?course=B.Sc Non Medical" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Computer Science</h3><p>3 Years • Science</p><div class="actions"><a href="admission.html?course=B.Sc Computer Science">Apply</a><a href="chatbot.html?course=B.Sc Computer Science" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Biotechnology</h3><p>3 Years • Life Science</p><div class="actions"><a href="admission.html?course=B.Sc Biotechnology">Apply</a><a href="chatbot.html?course=B.Sc Biotechnology" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Medical</h3><p>3 Years • Medical Science</p><div class="actions"><a href="admission.html?course=B.Sc Medical">Apply</a><a href="chatbot.html?course=B.Sc Medical" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Mathematics (Hons.)</h3><p>3 Years • Mathematics</p><div class="actions"><a href="admission.html?course=B.Sc Maths Hons">Apply</a><a href="chatbot.html?course=B.Sc Maths Hons" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Medical Lab Science</h3><p>3 Years • Paramedical</p><div class="actions"><a href="admission.html?course=Medical Lab Science">Apply</a><a href="chatbot.html?course=Medical Lab Science" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Radio Medical Imaging Technology</h3><p>3 Years • Paramedical</p><div class="actions"><a href="admission.html?course=Radiology">Apply</a><a href="chatbot.html?course=Radiology" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Operation Theatre Technology</h3><p>3 Years • Paramedical</p><div class="actions"><a href="admission.html?course=OTT">Apply</a><a href="chatbot.html?course=OTT" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Anaesthesia & OT Technology</h3><p>3 Years • Paramedical</p><div class="actions"><a href="admission.html?course=Anaesthesia">Apply</a><a href="chatbot.html?course=Anaesthesia" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>Bachelor of Physiotherapy (BPT)</h3><p>4.5 Years • Medical</p><div class="actions"><a href="admission.html?course=BPT">Apply</a><a href="chatbot.html?course=BPT" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. (Hons.) Agriculture</h3><p>4 Years • Agriculture</p><div class="actions"><a href="admission.html?course=Agriculture">Apply</a><a href="chatbot.html?course=Agriculture" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Agri Business Management</h3><p>4 Years • Agriculture</p><div class="actions"><a href="admission.html?course=Agri Business">Apply</a><a href="chatbot.html?course=Agri Business" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Com.</h3><p>3 Years • Commerce</p><div class="actions"><a href="admission.html?course=B.Com">Apply</a><a href="chatbot.html?course=B.Com" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Com. (Honours)</h3><p>3 Years • Commerce</p><div class="actions"><a href="admission.html?course=B.Com Hons">Apply</a><a href="chatbot.html?course=B.Com Hons" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BBA</h3><p>3 Years • Management</p><div class="actions"><a href="admission.html?course=BBA">Apply</a><a href="chatbot.html?course=BBA" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BMS</h3><p>3 Years • Management</p><div class="actions"><a href="admission.html?course=BMS">Apply</a><a href="chatbot.html?course=BMS" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Sc. Fashion Design</h3><p>3 Years • Design</p><div class="actions"><a href="admission.html?course=Fashion Design">Apply</a><a href="chatbot.html?course=Fashion Design" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BHMCT</h3><p>4 Years • Hotel Management</p><div class="actions"><a href="admission.html?course=BHMCT">Apply</a><a href="chatbot.html?course=BHMCT" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BCA</h3><p>3 Years • Computer Applications</p><div class="actions"><a href="admission.html?course=BCA">Apply</a><a href="chatbot.html?course=BCA" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BCA (AI & ML)</h3><p>3 Years • Computer Applications</p><div class="actions"><a href="admission.html?course=BCA AI ML">Apply</a><a href="chatbot.html?course=BCA AI ML" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BCA (Data Analytics)</h3><p>3 Years • Computer Applications</p><div class="actions"><a href="admission.html?course=BCA Data Analytics">Apply</a><a href="chatbot.html?course=BCA Data Analytics" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BCA (Data Science)</h3><p>3 Years • Computer Applications</p><div class="actions"><a href="admission.html?course=BCA Data Science">Apply</a><a href="chatbot.html?course=BCA Data Science" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BCA (Graphics & Web Designing)</h3><p>3 Years • Design</p><div class="actions"><a href="admission.html?course=BCA Graphics">Apply</a><a href="chatbot.html?course=BCA Graphics" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+<!-- ========= 42–60 UG + PG ========= -->
+<div class="card"><h3>BA</h3><p>3 Years • Arts</p><div class="actions"><a href="admission.html?course=BA">Apply</a><a href="chatbot.html?course=BA" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BA Journalism & Mass Communication</h3><p>3 Years • Media</p><div class="actions"><a href="admission.html?course=Journalism">Apply</a><a href="chatbot.html?course=Journalism" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>BFA (Fine Arts)</h3><p>4 Years • Fine Arts</p><div class="actions"><a href="admission.html?course=BFA">Apply</a><a href="chatbot.html?course=BFA" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.A.–B.Ed. Integrated</h3><p>4 Years • Education</p><div class="actions"><a href="admission.html?course=BA BEd">Apply</a><a href="chatbot.html?course=BA BEd" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>B.Ed.</h3><p>2 Years • Education</p><div class="actions"><a href="admission.html?course=BEd">Apply</a><a href="chatbot.html?course=BEd" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.Tech CSE</h3><p>2 Years • Engineering</p><div class="actions"><a href="admission.html?course=M.Tech CSE">Apply</a><a href="chatbot.html?course=M.Tech CSE" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.Sc. Physics</h3><p>2 Years • Science</p><div class="actions"><a href="admission.html?course=MSc Physics">Apply</a><a href="chatbot.html?course=MSc Physics" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.Sc. Chemistry</h3><p>2 Years • Science</p><div class="actions"><a href="admission.html?course=MSc Chemistry">Apply</a><a href="chatbot.html?course=MSc Chemistry" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.Sc. Mathematics</h3><p>2 Years • Science</p><div class="actions"><a href="admission.html?course=MSc Maths">Apply</a><a href="chatbot.html?course=MSc Maths" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.Com.</h3><p>2 Years • Commerce</p><div class="actions"><a href="admission.html?course=MCom">Apply</a><a href="chatbot.html?course=MCom" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>MBA</h3><p>2 Years • Management</p><div class="actions"><a href="admission.html?course=MBA">Apply</a><a href="chatbot.html?course=MBA" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>MBA (Agri Business)</h3><p>2 Years • Management</p><div class="actions"><a href="admission.html?course=MBA Agri">Apply</a><a href="chatbot.html?course=MBA Agri" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>MCA</h3><p>2 Years • Computer Applications</p><div class="actions"><a href="admission.html?course=MCA">Apply</a><a href="chatbot.html?course=MCA" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>PG Diploma in Computer Applications</h3><p>1 Year • Computer</p><div class="actions"><a href="admission.html?course=PGDCA">Apply</a><a href="chatbot.html?course=PGDCA" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.A. English</h3><p>2 Years • Arts</p><div class="actions"><a href="admission.html?course=MA English">Apply</a><a href="chatbot.html?course=MA English" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.A. Economics</h3><p>2 Years • Arts</p><div class="actions"><a href="admission.html?course=MA Economics">Apply</a><a href="chatbot.html?course=MA Economics" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.A. Punjabi</h3><p>2 Years • Arts</p><div class="actions"><a href="admission.html?course=MA Punjabi">Apply</a><a href="chatbot.html?course=MA Punjabi" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.A. History</h3><p>2 Years • Arts</p><div class="actions"><a href="admission.html?course=MA History">Apply</a><a href="chatbot.html?course=MA History" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.A. Political Science</h3><p>2 Years • Arts</p><div class="actions"><a href="admission.html?course=MA Pol Sci">Apply</a><a href="chatbot.html?course=MA Pol Sci" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+
+<div class="card"><h3>M.Sc. Geography</h3><p>2 Years • Science</p><div class="actions"><a href="admission.html?course=MSc Geography">Apply</a><a href="chatbot.html?course=MSc Geography" class="ai">Ask AI</a><a href="fees.html" class="fees">Fees</a></div></div>
+</section>
+
+<footer>
+  © 2026 Baba Farid Group of Institutions | Admission Assistant
+</footer>
+
+<script src="static/js/script.js"></script>
+
+</body>
+</html>

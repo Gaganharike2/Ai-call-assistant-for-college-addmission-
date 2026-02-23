@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admission Process | BFGI</title>
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css3/styles.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/BFGI-logo.jpg') }}" alt="BFGI Logo">
+  </div>
+
+  <nav>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('courses') }}">Courses</a>
+    <a href="{{ url_for('chatbot') }}">Chatbot</a>
+    <a href="{{ url_for('fees') }}">Fees</a>
+    <a href="{{ url_for('admission_process') }}">Process</a>
+    <a href="{{ url_for('login_page') }}">Login</a>
+  </nav>
+
+  <div class="nav-icons">
+    <button id="themeToggle" class="icon-btn">🌙</button>
+    <button id="voiceToggle" class="icon-btn">🎤</button>
+  </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Admission Process</h1>
+
+    <p>
+      Clear, transparent & AI-assisted admission journey
+    </p>
+  </div>
+</section>
+
+
+<!-- ================= ALERT ================= -->
+<section class="features">
+  <div class="feature-card" style="text-align:center;">
+    🚨 Admissions Open | Limited Seats Available | Last Date: 30 June 2026
+  </div>
+</section>
+
+
+<!-- ================= PROCESS STEPS ================= -->
+<section class="features">
+
+  <h2>Step-by-Step Admission</h2>
+
+  <div class="feature-grid">
+
+    <!-- Step 1 -->
+    <div class="feature-card">
+      <h3>1️⃣ Course Selection</h3>
+      <p>Choose the right program.</p>
+      <p>Department-wise courses</p>
+
+      <button class="btn-primary"
+        onclick="location.href='{{ url_for('courses') }}'">
+        View Courses
+      </button>
+
+      <button class="btn-secondary"
+        onclick="location.href='{{ url_for('chatbot') }}'">
+        Ask AI
+      </button>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="feature-card">
+      <h3>2️⃣ Eligibility Check</h3>
+      <p>Verify qualification & marks.</p>
+
+      <button class="btn-primary"
+        onclick="location.href='{{ url_for('chatbot') }}'">
+        Check Eligibility
+      </button>
+
+      <button class="btn-secondary"
+        onclick="location.href='{{ url_for('chatbot') }}'">
+        Ask AI
+      </button>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="feature-card">
+      <h3>3️⃣ Apply Online</h3>
+      <p>Fill admission form securely.</p>
+
+      <button class="btn-primary"
+        onclick="location.href='{{ url_for('admission') }}'">
+        Apply Now
+      </button>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="feature-card">
+      <h3>4️⃣ Document Verification</h3>
+      <p>Submit required documents.</p>
+
+      <button class="btn-primary"
+        onclick="location.href='{{ url_for('admission_process') }}'">
+        Documents List
+      </button>
+
+      <button class="btn-secondary"
+        onclick="location.href='{{ url_for('chatbot') }}'">
+        Ask AI
+      </button>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="feature-card">
+      <h3>5️⃣ Fee Payment</h3>
+      <p>Transparent fee structure.</p>
+
+      <button class="btn-primary"
+        onclick="location.href='{{ url_for('fees') }}'">
+        Check Fees
+      </button>
+    </div>
+
+    <!-- Step 6 -->
+    <div class="feature-card">
+      <h3>6️⃣ Merit & Shortlisting</h3>
+      <p>Merit-based selection.</p>
+    </div>
+
+    <!-- Step 7 -->
+    <div class="feature-card">
+      <h3>7️⃣ Counseling & Seat Allotment</h3>
+      <p>Choice filling & allotment.</p>
+    </div>
+
+    <!-- Step 8 -->
+    <div class="feature-card">
+      <h3>8️⃣ Admission Confirmation</h3>
+      <p>Confirm & enroll.</p>
+
+      <button class="btn-primary"
+        onclick="location.href='{{ url_for('admission') }}'">
+        Track Status
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= AI HELP ================= -->
+<section class="features">
+  <div class="feature-card" style="text-align:center;">
+
+    <h2>🤖 Need Help?</h2>
+
+    <p>Ask our AI Assistant (Text or Voice)</p>
+
+    <button class="btn-primary"
+      onclick="location.href='{{ url_for('chatbot') }}'">
+      Ask AI Now
+    </button>
+
+  </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p>© 2026 Baba Farid Group of Institutions | Admission Portal</p>
+</footer>
+
+
+<!-- JS -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>College Admission Assistant | BFGI</title>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css3/styles.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/BFGI-logo.jpg') }}" alt="BFGI Logo">
+  </div>
+
+  <nav>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('profile') }}">Profile</a>
+    <a href="{{ url_for('recommend') }}">Recommendation</a>
+    <a href="{{ url_for('courses') }}">Courses</a>
+    <a href="{{ url_for('fees') }}">Fees</a>
+    <a href="{{ url_for('chatbot') }}">Chatbot</a>
+    <a href="{{ url_for('admission_process') }}">Process</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </nav>
+
+  <div class="nav-icons">
+    <button id="themeToggle" class="icon-btn">🌙</button>
+    <button id="voiceToggle" class="icon-btn">🎤</button>
+  </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h1>Smart College Admission Assistant</h1>
+
+    <p>
+      Get instant guidance on courses, eligibility, fees, scholarships,
+      and the complete admission process — powered by AI.
+    </p>
+
+    <button class="btn-primary"
+      onclick="location.href='{{ url_for('chatbot') }}'">
+      🤖 Start AI Chat
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= VOICE HINT ================= -->
+<section class="features">
+
+  <div class="feature-card" style="text-align:center;">
+
+    🎤 <strong>You can ask questions by voice!</strong><br>
+    Click the mic icon in the top-right corner.
+
+  </div>
+
+</section>
+
+
+<!-- ================= QUICK ACTIONS ================= -->
+<section class="features">
+
+  <h2>Quick Actions</h2>
+
+  <div class="feature-grid">
+
+    <div class="feature-card"
+      onclick="location.href='{{ url_for('recommend') }}'">
+
+      <h3>🎓 Find Best Course</h3>
+      <p>AI recommends courses based on your interest.</p>
+
+    </div>
+
+
+    <div class="feature-card"
+      onclick="location.href='{{ url_for('fees') }}'">
+
+      <h3>💰 Check Fees</h3>
+      <p>View complete fee structure instantly.</p>
+
+    </div>
+
+
+    <div class="feature-card"
+      onclick="location.href='{{ url_for('admission') }}'">
+
+      <h3>📝 Apply Online</h3>
+      <p>Fill the admission form in minutes.</p>
+
+    </div>
+
+
+    <div class="feature-card"
+      onclick="location.href='{{ url_for('chatbot') }}'">
+
+      <h3>🎤 Talk to AI</h3>
+      <p>Ask questions using voice or text.</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+<section class="features">
+
+  <h2>Why Choose BFGI?</h2>
+
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <h3>60+</h3>
+      <p>Courses Offered</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>15,000+</h3>
+      <p>Students Enrolled</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>95%</h3>
+      <p>Placement Support</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>25+</h3>
+      <p>Years of Excellence</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ADMISSION STEPS ================= -->
+<section class="features">
+
+  <h2>Admission Process</h2>
+
+  <div class="feature-grid">
+
+    <div class="feature-card">1️⃣ Choose Course</div>
+    <div class="feature-card">2️⃣ Check Eligibility</div>
+    <div class="feature-card">3️⃣ Apply Online</div>
+    <div class="feature-card">4️⃣ Document Verification</div>
+    <div class="feature-card">5️⃣ Admission Confirmed</div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+<section class="features">
+
+  <div class="feature-card" style="text-align:center;">
+
+    <h2>Confused about admission?</h2>
+
+    <p>Let our AI assistant guide you instantly.</p>
+
+    <button class="btn-primary"
+      onclick="location.href='{{ url_for('chatbot') }}'">
+
+      💬 Talk to AI Assistant
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+
+  <p>© 2026 College Admission Assistant | Powered by AI</p>
+
+</footer>
+
+
+<!-- Main JS -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

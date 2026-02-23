@@ -1,0 +1,22 @@
+
+Baba Farid Group of Institutions (BFGI)
+
+Courses:
+- BCA
+- MCA
+- B.Tech
+- MBA
+- BBA
+- B.Com
+
+Fees:
+BCA: ₹45,000 per year
+MCA: ₹60,000 per year
+B.Tech: ₹80,000 per year
+MBA: ₹70,000 per year
+
+Location:
+Bathinda, Punjab
+
+Contact:
+info@bfgi.com
